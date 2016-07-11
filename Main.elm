@@ -19,16 +19,16 @@ view : (String, String) -> Html Msg
 view (string0, string1) =
   div []
     (  [ h1 [] [text "Array Concatenation"] ] 
-    ++ [ h2 [] [text "Take two strings, convert them into arrays, concatenate the arrays, convert back to string, display result:" ] ] 
-    ++ [ input [ value string0 , onInput Change0 ] [] ] 
+    ++ [ h2 [] [text "Convert two strings into arrays, concatenate the arrays, convert back to string, display result:" ] ] 
+    ++ [ input [ value string0 , onInput Change0 ] [] ]       -- Enter first string
     ++ [ text "+" ] 
-    ++ [ input [ value string1 , onInput Change1 ] [] ] 
+    ++ [ input [ value string1 , onInput Change1 ] [] ]       -- Enter second string
     ++ [ text "=" ] 
-    ++ [ let array0 = A.fromList (S.toList string0)
-             array1 = A.fromList (S.toList string1)
-             joinedArray = A.append array0 array1
-             joinedString = S.fromList (A.toList joinedArray)
-         in text joinedString 
+    ++ [ let array0       = A.fromList (S.toList string0)     -- create first array
+             array1       = A.fromList (S.toList string1)     -- create second array
+             joinedArray  = A.append array0 array1            -- Array Concatenation
+             joinedString = S.fromList (A.toList joinedArray) -- convert back to string
+         in text joinedString                                 -- display result
        ]
     )
 
