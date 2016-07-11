@@ -6,8 +6,6 @@ import Html.Events exposing (onInput, targetValue)
 import Html.App exposing (beginnerProgram)
 import Json.Decode exposing (map)
 
-type alias Model = (String String)
-
 type Msg = Change0 String | Change1 String
 
 update msg (old0, old1) = 
