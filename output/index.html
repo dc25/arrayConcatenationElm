@@ -7624,10 +7624,26 @@ var _elm_lang$html$Html_Events$Options = F2(
 	function (a, b) {
 		return {stopPropagation: a, preventDefault: b};
 	});
-var _user$project$Main$view = function (_p0) {
-	var _p1 = _p0;
-	var _p3 = _p1._1;
-	var _p2 = _p1._0;
+var _user$project$Main$update = F2(
+	function (msg, _p0) {
+		var _p1 = _p0;
+		var _p2 = msg;
+		if (_p2.ctor === 'Change0') {
+			return {ctor: '_Tuple2', _0: _p2._0, _1: _p1._1};
+		} else {
+			return {ctor: '_Tuple2', _0: _p1._0, _1: _p2._0};
+		}
+	});
+var _user$project$Main$Change1 = function (a) {
+	return {ctor: 'Change1', _0: a};
+};
+var _user$project$Main$Change0 = function (a) {
+	return {ctor: 'Change0', _0: a};
+};
+var _user$project$Main$view = function (_p3) {
+	var _p4 = _p3;
+	var _p6 = _p4._1;
+	var _p5 = _p4._0;
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -7666,16 +7682,8 @@ var _user$project$Main$view = function (_p0) {
 							_elm_lang$html$Html$input,
 							_elm_lang$core$Native_List.fromArray(
 								[
-									_elm_lang$html$Html_Attributes$value(_p2),
-									A2(
-									_elm_lang$html$Html_Events$on,
-									'input',
-									A2(
-										_elm_lang$core$Json_Decode$map,
-										function (st) {
-											return {ctor: '_Tuple2', _0: st, _1: _p3};
-										},
-										_elm_lang$html$Html_Events$targetValue))
+									_elm_lang$html$Html_Attributes$value(_p5),
+									_elm_lang$html$Html_Events$onInput(_user$project$Main$Change0)
 								]),
 							_elm_lang$core$Native_List.fromArray(
 								[]))
@@ -7694,16 +7702,8 @@ var _user$project$Main$view = function (_p0) {
 									_elm_lang$html$Html$input,
 									_elm_lang$core$Native_List.fromArray(
 										[
-											_elm_lang$html$Html_Attributes$value(_p3),
-											A2(
-											_elm_lang$html$Html_Events$on,
-											'input',
-											A2(
-												_elm_lang$core$Json_Decode$map,
-												function (st) {
-													return {ctor: '_Tuple2', _0: _p2, _1: st};
-												},
-												_elm_lang$html$Html_Events$targetValue))
+											_elm_lang$html$Html_Attributes$value(_p6),
+											_elm_lang$html$Html_Events$onInput(_user$project$Main$Change1)
 										]),
 									_elm_lang$core$Native_List.fromArray(
 										[]))
@@ -7718,9 +7718,9 @@ var _user$project$Main$view = function (_p0) {
 									[
 										function () {
 										var array1 = _elm_lang$core$Array$fromList(
-											_elm_lang$core$String$toList(_p3));
+											_elm_lang$core$String$toList(_p6));
 										var array0 = _elm_lang$core$Array$fromList(
-											_elm_lang$core$String$toList(_p2));
+											_elm_lang$core$String$toList(_p5));
 										var joinedArray = A2(_elm_lang$core$Array$append, array0, array1);
 										var joinedString = _elm_lang$core$String$fromList(
 											_elm_lang$core$Array$toList(joinedArray));
@@ -7728,10 +7728,6 @@ var _user$project$Main$view = function (_p0) {
 									}()
 									]))))))));
 };
-var _user$project$Main$update = F2(
-	function (newModel, oldModel) {
-		return newModel;
-	});
 var _user$project$Main$main = {
 	main: _elm_lang$html$Html_App$beginnerProgram(
 		{
